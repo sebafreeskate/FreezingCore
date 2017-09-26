@@ -3,38 +3,11 @@
 
 #define GLEW_STATIC
 #include <GL/glew.h>
-#include <GLFW\glfw3.h>
+#include <GLFW/glfw3.h>
+#include "Shader.h"
 
 
 const GLuint WIDTH = 3200, HEIGHT = 1800;
-
-const GLchar *vertexShaderSrc =
-"#version 330 core\n"
-"layout (location = 0) in vec3 position;\n"
-"layout (location = 1) in vec3 color;\n"
-"out vec3 vertexColor; \n"
-"void main()\n"
-"{ \n"
-"gl_Position = vec4(position, 1.0); \n"
-"vertexColor = color; \n"
-"} \n";
-
-const GLchar *orangeFragmentShaderSrc =
-"#version 330 core\n"
-"out vec4 color;\n"
-"void main()\n"
-"{ \n" 
-" color= vec4(1.0f, 0.5f, 0.2f, 1.0f);  //the color orange \n"
-" }	\n \0";
-
-const GLchar *yellowFragmentShaderSrc =
-"#version 330 core\n"
-"out vec4 color;\n"
-"in vec3 vertexColor; \n"
-"void main()\n"
-"{\n"
-"color = vec4(vertexColor, 1.0f); \n"
-"}\n \0";
 
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
@@ -43,35 +16,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	// и приложение после этого закроется
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
-}
-
-void checkShaderCompileStatus(const GLuint &shader) 
-{
-	GLint success;
-	GLchar infoLog[512];
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(shader, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
-	}
-}
-
-void checkProgramLinkStatus(const GLuint &program)
-{
-	GLint success;
-	GLchar infolog[512];
-	glGetProgramiv(program, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(program, 512, NULL, infolog);
-		std::cout << "ERROR::PRIGRAM::LINK_FAILED\n" << infolog << std::endl;
-	}
-}
-
-GLuint create_VAO()
-{
-	GLuint VAO;
-	glGenVertexArrays(1, &VAO);
-	return VAO;
 }
 
 int main()
@@ -117,43 +61,7 @@ int main()
 	glViewport(0, 0, width, height);
 
 	//Shaders
-	GLuint vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSrc, NULL);
-	glCompileShader(vertexShader);
-
-	GLuint orangeFragmentShader;
-	orangeFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(orangeFragmentShader, 1, &orangeFragmentShaderSrc, NULL);
-	glCompileShader(orangeFragmentShader);
-
-	GLuint yellowFragmentShader;
-	yellowFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(yellowFragmentShader, 1, &yellowFragmentShaderSrc, NULL);
-	glCompileShader(yellowFragmentShader);
-
-	checkShaderCompileStatus(vertexShader);
-	checkShaderCompileStatus(orangeFragmentShader);
-	checkShaderCompileStatus(yellowFragmentShader);
-
-	GLuint orangeShaderProgram;
-	orangeShaderProgram = glCreateProgram();
-	glAttachShader(orangeShaderProgram, vertexShader);
-	glAttachShader(orangeShaderProgram, orangeFragmentShader);
-	glLinkProgram(orangeShaderProgram);
-
-	GLuint yellowShaderProgram;
-	yellowShaderProgram = glCreateProgram();
-	glAttachShader(yellowShaderProgram, vertexShader);
-	glAttachShader(yellowShaderProgram, yellowFragmentShader);
-	glLinkProgram(yellowShaderProgram);
-
-	checkProgramLinkStatus(yellowShaderProgram);
-	checkProgramLinkStatus(orangeShaderProgram);
-
-	glDeleteShader(vertexShader);
-	glDeleteShader(orangeFragmentShader);
-	glDeleteShader(yellowFragmentShader);
+	Shader shader("shader.frag", "shader.vert");
 
 	//Geometry
 	GLfloat first_triangle[] = {
@@ -225,22 +133,10 @@ int main()
 		
 		//draw triangle
 
-		GLfloat time_value = glfwGetTime();
-		GLfloat green_value = (sin(time_value) / 2) + 0.5;
-		GLint vertexColorLocation = glGetUniformLocation(yellowShaderProgram, "globalColor");
-		glUseProgram(yellowShaderProgram);
-		glUniform4f(vertexColorLocation, 0.0f, green_value, 0.0f, 1.0f);
+		shader.Use();
 
 		glBindVertexArray(VAO1);
-	//		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-
-
-		glUseProgram(orangeShaderProgram);
-
-		glBindVertexArray(VAO2);
-	//		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glBindVertexArray(0);
 

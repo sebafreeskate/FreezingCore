@@ -40,31 +40,33 @@ Shader::Shader(const GLchar * vertexPath, const GLchar * fragmentPath)
 	const GLchar* fShaderCode = fragmentCode.c_str();
 
 	
-	// 2. Сборка шейдеров
+	//shader building
 	GLuint vertex, fragment;
 	GLint success;
 	GLchar infoLog[512];
 
-	// Вершинный шейдер
-	vertex = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertex, 1, &vShaderCode, NULL);
-	glCompileShader(vertex);
-	// Если есть ошибки - вывести их
-	glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+	auto create_shader = [&success, &infoLog](GLuint SHADER_TYPE, const GLchar* shaderCode) {
+		GLuint shader_id = glCreateShader(SHADER_TYPE);
+		glShaderSource(shader_id, 1, &shaderCode, NULL);
+		glCompileShader(shader_id);
+		//possible errors
+		glGetShaderiv(shader_id, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader_id, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		};
+		return shader_id;
 	};
 
-	// Аналогично для фрагментного шейдера
+	vertex = create_shader(GL_VERTEX_SHADER, vShaderCode);
+	fragment = create_shader(GL_FRAGMENT_SHADER, vShaderCode);
 
-	// Шейдерная программа
 	this->Program = glCreateProgram();
 	glAttachShader(this->Program, vertex);
 	glAttachShader(this->Program, fragment);
 	glLinkProgram(this->Program);
-	//Если есть ошибки - вывести их
+
 	glGetProgramiv(this->Program, GL_LINK_STATUS, &success);
 	if (!success)
 	{
@@ -72,12 +74,12 @@ Shader::Shader(const GLchar * vertexPath, const GLchar * fragmentPath)
 		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
 	}
 
-	// Удаляем шейдеры, поскольку они уже в программу и нам больше не нужны.
+	//dont need them anymore
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
-
 }
 
 void Shader::Use()
 {
+	glUseProgram(this->Program);
 }
