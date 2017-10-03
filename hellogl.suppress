@@ -1,0 +1,1234 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="SuppressVersion">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CurrentVersion" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="hellogl">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FileName" type="xs:string" default="" />
+                <xs:element name="ErrorCode" type="xs:string" default="" />
+                <xs:element name="Message" type="xs:string" default="" />
+                <xs:element name="CodePrev" type="xs:unsignedInt" default="0" />
+                <xs:element name="CodeCurrent" type="xs:unsignedInt" default="0" />
+                <xs:element name="CodeNext" type="xs:unsignedInt" default="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//hellogl" />
+        <xs:field xpath="FileName" />
+        <xs:field xpath="ErrorCode" />
+        <xs:field xpath="Message" />
+        <xs:field xpath="CodePrev" />
+        <xs:field xpath="CodeCurrent" />
+        <xs:field xpath="CodeNext" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <SuppressVersion>
+    <CurrentVersion>2</CurrentVersion>
+  </SuppressVersion>
+  <hellogl>
+    <FileName>glew.h</FileName>
+    <ErrorCode>V677</ErrorCode>
+    <Message>Custom declaration of a standard 'ptrdiff_t' type. The system header file should be used: #include &lt;CRTDEFS.H&gt;.</Message>
+    <CodePrev>43</CodePrev>
+    <CodeCurrent>773000671</CodeCurrent>
+    <CodeNext>100</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>glew.h</FileName>
+    <ErrorCode>V126</ErrorCode>
+    <Message>Be advised that the size of the type 'long' varies between LLP_/LP_ data models.</Message>
+    <CodePrev>3355266758</CodePrev>
+    <CodeCurrent>1912585684</CodeCurrent>
+    <CodeNext>48411311</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>glfw3.h</FileName>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>11523031</CodeCurrent>
+    <CodeNext>3328813060</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>glfw3.h</FileName>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>46091547</CodeCurrent>
+    <CodeNext>1664393721</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>glfw3.h</FileName>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>23045669</CodeCurrent>
+    <CodeNext>3952986416</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>glfw3.h</FileName>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>46131685</CodeCurrent>
+    <CodeNext>67925</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...TYPE_STRUCT(_).</Message>
+    <CodePrev>338434977</CodePrev>
+    <CodeCurrent>338434989</CodeCurrent>
+    <CodeNext>338434997</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting: (glm_vec_ const (*)[_]) &amp; y[_].data. Consider verifying it.</Message>
+    <CodePrev>317875673</CodePrev>
+    <CodeCurrent>317876185</CodeCurrent>
+    <CodeNext>412838787</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting: (glm_vec_ (*)[_]) &amp; result[_].data. Consider verifying it.</Message>
+    <CodePrev>317876185</CodePrev>
+    <CodeCurrent>412838787</CodeCurrent>
+    <CodeNext>352987</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting: (glm_vec_ const (*)[_]) &amp; m[_].data. Consider verifying it.</Message>
+    <CodePrev>18269750</CodePrev>
+    <CodeCurrent>317870041</CodeCurrent>
+    <CodeNext>412838787</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting: (glm_vec_ (*)[_]) &amp; result[_].data. Consider verifying it.</Message>
+    <CodePrev>317870041</CodePrev>
+    <CodeCurrent>412838787</CodeCurrent>
+    <CodeNext>352987</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting. Consider verifying it.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>3163707750</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting. Consider verifying it.</Message>
+    <CodePrev>2293774015</CodePrev>
+    <CodeCurrent>1670843274</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting. Consider verifying it.</Message>
+    <CodePrev>1357767518</CodePrev>
+    <CodeCurrent>189861977</CodeCurrent>
+    <CodeNext>11097</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting. Consider verifying it.</Message>
+    <CodePrev>2217621223</CodePrev>
+    <CodeCurrent>189861977</CodeCurrent>
+    <CodeNext>11097</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting. Consider verifying it.</Message>
+    <CodePrev>2703364795</CodePrev>
+    <CodeCurrent>189861977</CodeCurrent>
+    <CodeNext>11097</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x2.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>2137532679</CodeCurrent>
+    <CodeNext>123</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_half.inl</FileName>
+    <ErrorCode>V530</ErrorCode>
+    <Message>The return value of function 'overflow' is required to be utilized.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2002651935</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_packing.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: u_ in[_];.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>15817</CodeCurrent>
+    <CodeNext>10303</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_packing.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: u_ out[_];.</Message>
+    <CodePrev>5219</CodePrev>
+    <CodeCurrent>31145</CodeCurrent>
+    <CodeNext>293</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_packing.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: i_ in[_];.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>13257</CodeCurrent>
+    <CodeNext>10303</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_packing.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: i_ out[_];.</Message>
+    <CodePrev>5219</CodePrev>
+    <CodeCurrent>26025</CodeCurrent>
+    <CodeNext>293</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix_simd.inl</FileName>
+    <ErrorCode>V580</ErrorCode>
+    <Message>An odd explicit type casting: (glm_vec_ const (*)[_]) &amp; x[_].data. Consider verifying it.</Message>
+    <CodePrev>584909768</CodePrev>
+    <CodeCurrent>317875673</CodeCurrent>
+    <CodeNext>317876185</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ic_cast&lt;T&gt;( _));.</Message>
+    <CodePrev>2999766131</CodePrev>
+    <CodeCurrent>2999766083</CodeCurrent>
+    <CodeNext>336259986</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: r[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236123603</CodePrev>
+    <CodeCurrent>167133</CodeCurrent>
+    <CodeNext>11097</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V525</ErrorCode>
+    <Message>The code contains the collection of similar blocks. Check items '+', '-', '+', '-', '+', '-', '+', '-', '+' in lines _, _, _, _, _, _, _, _, _.</Message>
+    <CodePrev>2797712213</CodePrev>
+    <CodeCurrent>1441154769</CodeCurrent>
+    <CodeNext>489031377</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236271059</CodePrev>
+    <CodeCurrent>3882621</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: v[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236271059</CodePrev>
+    <CodeCurrent>3882621</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_common.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>1986702845</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_common.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: a[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>1986702845</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_common.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>1986702845</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_common.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>1986702845</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _x_FFFFFFF used: ..._set__epi_(_x_FFFFFFF)));.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2344975306</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'zro_' item's usage.</Message>
+    <CodePrev>393386915</CodePrev>
+    <CodeCurrent>389282723</CodeCurrent>
+    <CodeNext>707704004</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of '_mm_set_ps_' item's usage.</Message>
+    <CodePrev>389282723</CodePrev>
+    <CodeCurrent>707704004</CodeCurrent>
+    <CodeNext>2500287729</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'and_' item's usage.</Message>
+    <CodePrev>2500287729</CodePrev>
+    <CodeCurrent>1022705075</CodeCurrent>
+    <CodeNext>44043</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _x_ used: ..._set__epi_(_x_));.</Message>
+    <CodePrev>43</CodePrev>
+    <CodeCurrent>2509707072</CodeCurrent>
+    <CodeNext>2258410541</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _x_ used: ..._set__epi_(_x_));.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2509707072</CodeCurrent>
+    <CodeNext>2258410541</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>496835079</CodePrev>
+    <CodeCurrent>45311469</CodeCurrent>
+    <CodeNext>352987</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>496835079</CodePrev>
+    <CodeCurrent>45311469</CodeCurrent>
+    <CodeNext>352987</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>496835079</CodePrev>
+    <CodeCurrent>45311469</CodeCurrent>
+    <CodeNext>352987</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_matrix.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: m[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236123603</CodePrev>
+    <CodeCurrent>167133</CodeCurrent>
+    <CodeNext>11097</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: v[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236271059</CodePrev>
+    <CodeCurrent>62706141</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...tic_cast&lt;T&gt;(_));.</Message>
+    <CodePrev>672520019</CodePrev>
+    <CodeCurrent>672520016</CodeCurrent>
+    <CodeNext>1460830529</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ast&lt;uint_&gt;(_)) - static_...</Message>
+    <CodePrev>3599565687</CodePrev>
+    <CodeCurrent>3498887311</CodeCurrent>
+    <CodeNext>2467720915</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>integer.h</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'Reg_' item's usage.</Message>
+    <CodePrev>458456599</CodePrev>
+    <CodeCurrent>4187690622</CodeCurrent>
+    <CodeNext>4124096642</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>integer.h</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'Reg_' item's usage.</Message>
+    <CodePrev>4188444266</CodePrev>
+    <CodeCurrent>4124096782</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>integer.h</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...epi_(Reg_, _);.</Message>
+    <CodePrev>456273443</CodePrev>
+    <CodeCurrent>4187690602</CodeCurrent>
+    <CodeNext>4124096642</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer_simd.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'set_' item's usage.</Message>
+    <CodePrev>3173993000</CodePrev>
+    <CodeCurrent>2803955300</CodeCurrent>
+    <CodeNext>2578656950</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer_simd.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'sft_' item's usage.</Message>
+    <CodePrev>2578656950</CodePrev>
+    <CodeCurrent>2736844900</CodeCurrent>
+    <CodeNext>125614612</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>matrix_transform.inl</FileName>
+    <ErrorCode>V525</ErrorCode>
+    <Message>The code contains the collection of similar blocks. Check items '_', '_', '_' in lines _, _, _.</Message>
+    <CodePrev>1828343317</CodePrev>
+    <CodeCurrent>2167964269</CodeCurrent>
+    <CodeNext>2973280865</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>quaternion.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...th(){return _;}.</Message>
+    <CodePrev>1700129897</CodePrev>
+    <CodeCurrent>3798065078</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>quaternion.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tquat' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>681458463</CodeCurrent>
+    <CodeNext>322825615</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>quaternion.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tquat' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>681458463</CodePrev>
+    <CodeCurrent>322825615</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>quaternion.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (&amp;x)[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>248322654</CodePrev>
+    <CodeCurrent>720365</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>quaternion.inl</FileName>
+    <ErrorCode>V525</ErrorCode>
+    <Message>The code contains the collection of similar blocks. Check items 'x', 'y', 'z', 'x', 'x', 'y', 'w', 'w', 'w' in lines _, _, _, _, _, _, _, _, _.</Message>
+    <CodePrev>1414708037</CodePrev>
+    <CodeCurrent>1022633</CodeCurrent>
+    <CodeNext>1021677</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>main.cpp</FileName>
+    <ErrorCode>V566</ErrorCode>
+    <Message>The integer constant is converted to pointer. Possibly an error or a bad coding style: (GLvoid *)(_ * sizeof (GLfloat))</Message>
+    <CodePrev>1090713</CodePrev>
+    <CodeCurrent>2776005194</CodeCurrent>
+    <CodeNext>2559188697</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ast&lt;uint_&gt;(_)) - static_...</Message>
+    <CodePrev>3101448625</CodePrev>
+    <CodeCurrent>3883976925</CodeCurrent>
+    <CodeNext>3452983665</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V126</ErrorCode>
+    <Message>Be advised that the size of the type 'long' varies between LLP_/LP_ data models.</Message>
+    <CodePrev>184480489</CodePrev>
+    <CodeCurrent>3381098440</CodeCurrent>
+    <CodeNext>3066027448</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V126</ErrorCode>
+    <Message>Be advised that the size of the type 'long' varies between LLP_/LP_ data models.</Message>
+    <CodePrev>184480489</CodePrev>
+    <CodeCurrent>4018108360</CodeCurrent>
+    <CodeNext>3066027448</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...cast&lt;int_&gt;(_)) + (static...</Message>
+    <CodePrev>539</CodePrev>
+    <CodeCurrent>674502981</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...cast&lt;int_&gt;(_)) + (vecTyp...</Message>
+    <CodePrev>1830190075</CodePrev>
+    <CodeCurrent>3904337210</CodeCurrent>
+    <CodeNext>3817393277</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ast&lt;uint_&gt;(_));.</Message>
+    <CodePrev>3060493442</CodePrev>
+    <CodeCurrent>3635988245</CodeCurrent>
+    <CodeNext>3335912554</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ast&lt;uint_&gt;(_));.</Message>
+    <CodePrev>3603759991</CodePrev>
+    <CodeCurrent>3640540373</CodeCurrent>
+    <CodeNext>3852999786</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...cast&lt;int_&gt;(_));.</Message>
+    <CodePrev>3226928014</CodePrev>
+    <CodeCurrent>1981371473</CodeCurrent>
+    <CodeNext>3815292016</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _xFFFFFFFF used: ...cast&lt;int_&gt;(_xFFFFFFFF));.</Message>
+    <CodePrev>3097476972</CodePrev>
+    <CodeCurrent>591765722</CodeCurrent>
+    <CodeNext>3057679092</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...cast&lt;int_&gt;(_)) &amp; static_...</Message>
+    <CodePrev>591765722</CodePrev>
+    <CodeCurrent>3057679092</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _xFFFFFFFF used: ...cast&lt;int_&gt;(_xFFFFFFFF));.</Message>
+    <CodePrev>591765722</CodePrev>
+    <CodeCurrent>3057679092</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ic_cast&lt;T&gt;( _));.</Message>
+    <CodePrev>2968357304</CodePrev>
+    <CodeCurrent>4243428317</CodeCurrent>
+    <CodeNext>412758837</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _x_FFFFFFFFull used: ...::call(x, T(_x_FFFFFFFFull), static_ca...</Message>
+    <CodePrev>2704568730</CodePrev>
+    <CodeCurrent>3878974496</CodeCurrent>
+    <CodeNext>11123</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...tic_cast&lt;T&gt;(_));.</Message>
+    <CodePrev>2704568730</CodePrev>
+    <CodeCurrent>3878974496</CodeCurrent>
+    <CodeNext>11123</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...d&lt;T&gt;::type( _));.</Message>
+    <CodePrev>340130730</CodePrev>
+    <CodeCurrent>1097530240</CodeCurrent>
+    <CodeNext>2642911363</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _x_FFFFFFFFull used: ...ed&lt;T&gt;::type(_x_FFFFFFFFull), typename...</Message>
+    <CodePrev>3164553575</CodePrev>
+    <CodeCurrent>102711650</CodeCurrent>
+    <CodeNext>723450921</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...ed&lt;T&gt;::type(_));.</Message>
+    <CodePrev>3164553575</CodePrev>
+    <CodeCurrent>102711650</CodeCurrent>
+    <CodeNext>723450921</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V126</ErrorCode>
+    <Message>Be advised that the size of the type 'long' varies between LLP_/LP_ data models.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>184480489</CodeCurrent>
+    <CodeNext>4018108360</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_integer.inl</FileName>
+    <ErrorCode>V126</ErrorCode>
+    <Message>Be advised that the size of the type 'long' varies between LLP_/LP_ data models.</Message>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>184480489</CodeCurrent>
+    <CodeNext>3381098440</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>main.cpp</FileName>
+    <ErrorCode>V566</ErrorCode>
+    <Message>The integer constant is converted to pointer. Possibly an error or a bad coding style: (GLvoid *)(_ * sizeof (GLfloat))</Message>
+    <CodePrev>9839769</CodePrev>
+    <CodeCurrent>2774432290</CodeCurrent>
+    <CodeNext>2559188693</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: v[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236271059</CodePrev>
+    <CodeCurrent>62704669</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124174861</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>681458463</CodeCurrent>
+    <CodeNext>322825615</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>681458463</CodePrev>
+    <CodeCurrent>322825615</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec4.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (&amp;x)[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>248322654</CodePrev>
+    <CodeCurrent>720365</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x3.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>2137663759</CodeCurrent>
+    <CodeNext>123</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat2x4.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>2137270583</CodeCurrent>
+    <CodeNext>123</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x2.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871682992</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec4.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...th(){return _;}.</Message>
+    <CodePrev>1898037592</CodePrev>
+    <CodeCurrent>3798065078</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec3.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (&amp;x)[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>248322654</CodePrev>
+    <CodeCurrent>720365</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>681458463</CodePrev>
+    <CodeCurrent>322825615</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>681458463</CodeCurrent>
+    <CodeNext>322825615</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>681458463</CodePrev>
+    <CodeCurrent>322825615</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (&amp;x)[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>248322654</CodePrev>
+    <CodeCurrent>720365</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1785571100</CodePrev>
+    <CodeCurrent>1781376796</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1789765404</CodePrev>
+    <CodeCurrent>1793959708</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1783473948</CodePrev>
+    <CodeCurrent>1779279644</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1793959708</CodePrev>
+    <CodeCurrent>1789765404</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1806542620</CodePrev>
+    <CodeCurrent>1810736924</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1808639772</CodePrev>
+    <CodeCurrent>1804445468</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1619896092</CodePrev>
+    <CodeCurrent>1624090396</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>1691199260</CodePrev>
+    <CodeCurrent>1687004956</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>3582830355</CodePrev>
+    <CodeCurrent>3574441747</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec2.inl</FileName>
+    <ErrorCode>V537</ErrorCode>
+    <Message>Consider reviewing the correctness of 'x' item's usage.</Message>
+    <CodePrev>3578636051</CodePrev>
+    <CodeCurrent>3587024659</CodeCurrent>
+    <CodeNext>179129</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>681458463</CodeCurrent>
+    <CodeNext>322825615</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124174861</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089005</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089005</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175693</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175693</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175693</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089069</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089069</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089069</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175821</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175821</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175821</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175629</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: x[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175629</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: y[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124175629</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>124174861</CodeCurrent>
+    <CodeNext>355035</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>func_vector_relational.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: Result[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>3236303827</CodePrev>
+    <CodeCurrent>62089005</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x3.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871699377</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec1.inl</FileName>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (&amp;x)[not a memsize-type]. Use memsize type instead.</Message>
+    <CodePrev>248322654</CodePrev>
+    <CodeCurrent>720365</CodeCurrent>
+    <CodeNext>125</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec1.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>681458463</CodePrev>
+    <CodeCurrent>322825615</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat3x4.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871650230</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x2.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...th(){return _;}.</Message>
+    <CodePrev>1898037592</CodePrev>
+    <CodeCurrent>3798065078</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x2.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x2.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871486380</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x3.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...th(){return _;}.</Message>
+    <CodePrev>1898037592</CodePrev>
+    <CodeCurrent>3798065078</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x3.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x3.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871502765</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x4.hpp</FileName>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number _ used: ...th(){return _;}.</Message>
+    <CodePrev>1898037592</CodePrev>
+    <CodeCurrent>3798065078</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3431049598</CodeCurrent>
+    <CodeNext>1836345887</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x4.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tmat_x_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>3431049598</CodePrev>
+    <CodeCurrent>1836345887</CodeCurrent>
+    <CodeNext>0</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_mat4x4.inl</FileName>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'value(v_), value(v_), value(v_), value(v_)' rather than an assignment operator.</Message>
+    <CodePrev>3759022180</CodePrev>
+    <CodeCurrent>3871584682</CodeCurrent>
+    <CodeNext>40</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>type_vec1.hpp</FileName>
+    <ErrorCode>V302</ErrorCode>
+    <Message>Member operator[] of 'tvec_' class has a _-bit type argument. Use memsize-type here.</Message>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>681458463</CodeCurrent>
+    <CodeNext>322825615</CodeNext>
+  </hellogl>
+  <hellogl>
+    <FileName>common.h</FileName>
+    <ErrorCode>V524</ErrorCode>
+    <Message>It is odd that the body of 'glm_vec__roundEven' function is fully equivalent to the body of 'glm_vec__round' function.</Message>
+    <CodePrev>45588</CodePrev>
+    <CodeCurrent>2552131333</CodeCurrent>
+    <CodeNext>123</CodeNext>
+  </hellogl>
+</NewDataSet>
