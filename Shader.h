@@ -10,7 +10,7 @@ public:
 	//build shader
 	Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
 	//program usage 
-	void use();
+	void Use();
 	GLuint programId();
 private:
 	//program indefener

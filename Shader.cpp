@@ -88,7 +88,7 @@
 		return id;
 	}
 	// Uses the current shader
-	void Shader::use()
+	void Shader::Use()
 	{
 		glUseProgram(this->id);
 	}
