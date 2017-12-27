@@ -1,11 +1,10 @@
-
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include "Shader.h"
 
-#include <GL/glew.h>
+#include <glm/gtc/type_ptr.hpp>
 
 	// Constructor generates the shader on the fly
 	Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
@@ -83,12 +82,41 @@
 		glDeleteShader(fragment);
 
 	}
+
 	GLuint Shader::programId()
 	{
 		return id;
 	}
+
+	void Shader::setMat4(const GLchar * name, const glm::mat4 & mtrx)
+	{
+		GLuint valueLoc = glGetUniformLocation(programId(), name);
+		glUniformMatrix4fv(valueLoc, 1, GL_FALSE, glm::value_ptr(mtrx));
+	}
+
+	void Shader::setVec3(const GLchar * name, const GLfloat &v0, const GLfloat &v1, const GLfloat &v2 )
+	{
+		GLint valueLoc = glGetUniformLocation(programId(), name);
+		glUniform3f(valueLoc, v0, v1, v2);
+	}
+
+	void Shader::setVec3(const GLchar * name, const glm::vec3 &v)
+	{
+		GLint valueLoc = glGetUniformLocation(programId(), name);
+		glUniform3f(valueLoc, v.x, v.y, v.z);
+	}
+
+	void Shader::setFloat(const GLchar *name, const GLfloat & value)
+	{
+		glUniform1f(glGetUniformLocation(programId(), name), value);
+	}
+
+	void Shader::setInt(const GLchar * name, const GLint& value)
+	{
+		glUniform1i(glGetUniformLocation(programId(), name), value);
+	}
 	// Uses the current shader
-	void Shader::Use()
+	void Shader::use()
 	{
 		glUseProgram(this->id);
 	}
