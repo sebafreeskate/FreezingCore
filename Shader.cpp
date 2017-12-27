@@ -83,7 +83,7 @@
 
 	}
 
-	GLuint Shader::programId()
+	GLuint Shader::programId() const
 	{
 		return id;
 	}

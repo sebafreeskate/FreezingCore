@@ -11,7 +11,7 @@ public:
 	Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
 	//program usage 
 	void use();
-	GLuint programId();
+	GLuint programId() const;
 	void setMat4(const GLchar * name, const glm::mat4 & mtrx);
 	void setVec3(const GLchar * name, const GLfloat & v0, const GLfloat & v1, const GLfloat & v2);
 	void setVec3(const GLchar * name, const glm::vec3 & v);
