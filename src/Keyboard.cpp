@@ -30,7 +30,5 @@ Direction Keyboard::getMovement()
 	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		return RIGHT;
 	}
-	else {
-		return NONE;
-	}
+	return NONE;
 }

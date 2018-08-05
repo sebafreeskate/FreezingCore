@@ -1,6 +1,8 @@
 
+#define STB_IMAGE_IMPLEMENTATION
+
 #include <glad/glad.h>
-#include <glad/glad.c>
+#include <glad.c>
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
@@ -20,8 +22,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
 // settings
-const unsigned int SCR_WIDTH = 3200;
-const unsigned int SCR_HEIGHT = 1800;
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 // camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -96,7 +98,7 @@ int main()
 
 	Shader mainShader("./shaders/1.model_loading.vert", "./shaders/1.model_loading.frag");
 
-	Model testModel("./resources/objects/nanosuit/nanosuit.obj");
+	Model testModel("./resources/Apple/apple_textured.obj");
 
 	// game loop
 	while (!glfwWindowShouldClose(window))

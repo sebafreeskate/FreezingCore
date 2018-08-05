@@ -1,3 +1,4 @@
+
 #include "Model.h"
 
 	Model::Model(string const &path, bool gamma /* = false*/) : gammaCorrection(gamma)
