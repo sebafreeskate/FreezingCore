@@ -1,4 +1,4 @@
-# FrozenCore
+# FreezingCore
 
 This project is something like a self-made game engine developed just for fun.
 
