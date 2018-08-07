@@ -1,63 +1,64 @@
-#pragma once
 
 #ifndef MESH_H
-#define MESH_H
+#	define MESH_H
 
-//#include <glad/glad.h> // holds all OpenGL type declarations
-// GLEW
-#define GLEW_STATIC
-
-//#include <GL/glew.h>
+#include <assimp/importer.hpp>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
 #include <glad/glad.h>
-
-#include <assimp/Importer.hpp>
-
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
-#include "./Shader.h"
-
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
+#include <map>
+#include <memory>
 #include <vector>
-using namespace std;
 
-struct Vertex {
-    glm::vec3 Position;
-    glm::vec3 Normal;
-    glm::vec2 TexCoords;
-    glm::vec3 Tangent;
-    glm::vec3 Bitangent;
-};
+	struct Vertex {
+		glm::vec3 position;
+		glm::vec3 normal;
+		glm::vec2 uv;
+	};
 
-struct Texture {
-    unsigned int id;
-    string type;
-    aiString path;
-};
+	class Mesh
+	{
+	public:
 
-class Mesh {
-public:
+		// Implement Default Constructor and Destructor
+		Mesh() { glGenVertexArrays(1, &mVertexArray); }
+		~Mesh() { glDeleteVertexArrays(1, &mVertexArray); }
 
-	Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures);
+		// Implement Custom Constructors
+		Mesh(std::string const & filename);
+		Mesh(std::vector<Vertex> const & vertices,
+			std::vector<GLuint> const & indices,
+			std::map<GLuint, std::string> const & textures);
 
-    // render the mesh
-	void Draw(const Shader& shader);
+		// Public Member Functions
+		void draw(GLuint shader);
 
-private:
+	private:
 
-    vector<Vertex> vertices;
-    vector<unsigned int> indices;
-    vector<Texture> textures;
-    unsigned int VAO;
+		// Disable Copying and Assignment
+		Mesh(Mesh const &) = delete;
+		Mesh & operator=(Mesh const &) = delete;
 
-    /*  Render data  */
-    unsigned int VBO, EBO;
+		// Private Member Functions
+		void parse(std::string const & path, aiNode const * node, aiScene const * scene);
+		void parse(std::string const & path, aiMesh const * mesh, aiScene const * scene);
+		std::map<GLuint, std::string> process(std::string const & path,
+			aiMaterial * material,
+			aiTextureType type);
 
-    /*  Functions    */
-    // initializes all the buffer objects/arrays
-	void setupMesh();
-};
+		// Private Member Containers
+		std::vector<std::unique_ptr<Mesh>> mSubMeshes;
+		std::vector<GLuint> mIndices;
+		std::vector<Vertex> mVertices;
+		std::map<GLuint, std::string> mTextures;
+
+		// Private Member Variables
+		GLuint mVertexArray;
+		GLuint mVertexBuffer;
+		GLuint mElementBuffer;
+
+	};
+
 #endif

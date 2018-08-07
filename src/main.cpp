@@ -1,6 +1,8 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 
+#include "utils.cpp"
+
 #include <glad/glad.h>
 #include <glad.c>
 #include <GLFW/glfw3.h>
@@ -9,49 +11,75 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <config.h>
+
 #include "Shader.h"
 #include "Camera.h"
-#include "Model.h"
+#include "Mesh.h"
 #include "Keyboard.h"
-#include "stdlib.h"
 
+#include "stdlib.h"
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void APIENTRY glDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity,
+	GLsizei length, const GLchar *message, const void *userParam);
 
-// settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-// camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
-float lastX = SCR_WIDTH / 2.0f;
-float lastY = SCR_HEIGHT / 2.0f;
+
 bool firstMouse = true;
 
-//input 
 HID *inputDevice;
 
-// main window
 GLFWwindow* window;
 
-// timing
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
+
+void configure_opengl_global_state() {
+	glEnable(GL_DEPTH_TEST);
+
+	GLint flags;
+	glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
+	if (flags & GL_CONTEXT_FLAG_DEBUG_BIT)
+	{
+		glEnable(GL_DEBUG_OUTPUT);
+		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+		glDebugMessageCallback(glDebugOutput, nullptr);
+		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+	} 
+	// draw in wireframe
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+}
 
 void initialize_glfw() 
 {
 	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+}
+
+void initialize_glad()
+{
+	// glad: load all OpenGL function pointers
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+		std::cout << "Failed to initialize GLAD" << std::endl;
+		exit(-1);
+	}
 }
 
 void initialize_window() {
 
-	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "FreezingCore", NULL, NULL);
 
 	if (window == NULL)
 	{
@@ -65,27 +93,32 @@ void initialize_window() {
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetScrollCallback(window, scroll_callback);
 
-	// tell GLFW to capture our mouse
+	// tell GLFW to capture MOUSE
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 }
 
-void initialize_glad()
+GLenum glCheckError_(const char *file, int line)
 {
-	// glad: load all OpenGL function pointers
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	GLenum errorCode;
+	while ((errorCode = glGetError()) != GL_NO_ERROR)
 	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
-		exit(-1);
+		std::string error;
+		switch (errorCode)
+		{
+		case GL_INVALID_ENUM:                  error = "INVALID_ENUM"; break;
+		case GL_INVALID_VALUE:                 error = "INVALID_VALUE"; break;
+		case GL_INVALID_OPERATION:             error = "INVALID_OPERATION"; break;
+		case GL_STACK_OVERFLOW:                error = "STACK_OVERFLOW"; break;
+		case GL_STACK_UNDERFLOW:               error = "STACK_UNDERFLOW"; break;
+		case GL_OUT_OF_MEMORY:                 error = "OUT_OF_MEMORY"; break;
+		case GL_INVALID_FRAMEBUFFER_OPERATION: error = "INVALID_FRAMEBUFFER_OPERATION"; break;
+		}
+		std::cout << error << " | " << file << " (" << line << ")" << std::endl;
 	}
+	return errorCode;
 }
-
-void configure_opengl_global_state() {
-	glEnable(GL_DEPTH_TEST);
-
-	// draw in wireframe
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-}
+#define glCheckError() glCheckError_(__FILE__, __LINE__)
 
 int main()
 {
@@ -96,64 +129,55 @@ int main()
 
 	inputDevice = new Keyboard(window);
 
-	Shader mainShader("./shaders/1.model_loading.vert", "./shaders/1.model_loading.frag");
+	Shader mainShader;
+	mainShader.attach(projectSrcDir + "/shaders/shader1.vert");
+	mainShader.attach(projectSrcDir + "/shaders/shader1.frag");
+	mainShader.link();
 
-	Model testModel("./resources/Apple/apple_textured.obj");
+	Mesh testMesh(projectSrcDir + "/resources/nanosuit/nanosuit.obj");
 
-	// game loop
 	while (!glfwWindowShouldClose(window))
 	{
-		// per-frame time logic
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
-		// input
 		camera.transpose(inputDevice->getMovement(), deltaTime);
 
-		// render
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(0.2f, 0.0f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// don't forget to enable shader before setting uniforms
-		mainShader.use();
+		mainShader.activate();
 
-		// view/projection transformations
-		glm::mat4 projection = glm::perspective(glm::radians(camera.getZoomVal()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-		glm::mat4 view = camera.GetViewMatrix();
-		mainShader.setMat4("projection", projection);
-		mainShader.setMat4("view", view);
+		glm::mat4 m_projection = glm::perspective(glm::radians(camera.getZoomVal()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+		glm::mat4 m_view = camera.GetViewMatrix();
+		mainShader.bind("projection", m_projection);
+		mainShader.bind("view", m_view);
 
-		// render the loaded model
-		glm::mat4 model;
-		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
-		mainShader.setMat4("model", model);
-		testModel.Draw(mainShader);
+		glm::mat4 m_model = glm::mat4(1.0);
+		//m_model = glm::translate(m_model, glm::vec3(0.0f, 0.5f, 0.0f)); // translate it down so it's at the center of the scene
+		m_model = glm::scale(m_model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for scene, scale it down
+		mainShader.bind("model", m_model);
+		testMesh.draw(mainShader.get());
 
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+		glCheckError();
 	}
 
-	// glfw: terminate, clearing all previously allocated GLFW resources.
-	// ------------------------------------------------------------------
 	glfwTerminate();
 	return 0;
 }
 
 
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-	// make sure the viewport matches the new window dimensions; note that width and 
-	// height will be significantly larger than specified on retina displays.
 	glViewport(0, 0, width, height);
 }
 
-// glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
+float lastX = SCR_WIDTH / 2.0f;
+float lastY = SCR_HEIGHT / 2.0f;
+
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
 	if (firstMouse)
@@ -172,9 +196,54 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 	camera.setDirection(xoffset, yoffset);
 }
 
-// glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	camera.zoom(yoffset);
+}
+
+void APIENTRY glDebugOutput(GLenum source,
+	GLenum type,
+	GLuint id,
+	GLenum severity,
+	GLsizei length,
+	const GLchar *message,
+	const void *userParam)
+{
+	// ignore non-significant error/warning codes
+	//if (id == 131169 || id == 131185 || id == 131218 || id == 131204) return;
+
+	std::cout << "---------------" << std::endl;
+	std::cout << "Debug message (" << id << "): " << message << std::endl;
+
+	switch (source)
+	{
+	case GL_DEBUG_SOURCE_API:             std::cout << "Source: API"; break;
+	case GL_DEBUG_SOURCE_WINDOW_SYSTEM:   std::cout << "Source: Window System"; break;
+	case GL_DEBUG_SOURCE_SHADER_COMPILER: std::cout << "Source: Shader Compiler"; break;
+	case GL_DEBUG_SOURCE_THIRD_PARTY:     std::cout << "Source: Third Party"; break;
+	case GL_DEBUG_SOURCE_APPLICATION:     std::cout << "Source: Application"; break;
+	case GL_DEBUG_SOURCE_OTHER:           std::cout << "Source: Other"; break;
+	} std::cout << std::endl;
+
+	switch (type)
+	{
+	case GL_DEBUG_TYPE_ERROR:               std::cout << "Type: Error"; break;
+	case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: std::cout << "Type: Deprecated Behaviour"; break;
+	case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:  std::cout << "Type: Undefined Behaviour"; break;
+	case GL_DEBUG_TYPE_PORTABILITY:         std::cout << "Type: Portability"; break;
+	case GL_DEBUG_TYPE_PERFORMANCE:         std::cout << "Type: Performance"; break;
+	case GL_DEBUG_TYPE_MARKER:              std::cout << "Type: Marker"; break;
+	case GL_DEBUG_TYPE_PUSH_GROUP:          std::cout << "Type: Push Group"; break;
+	case GL_DEBUG_TYPE_POP_GROUP:           std::cout << "Type: Pop Group"; break;
+	case GL_DEBUG_TYPE_OTHER:               std::cout << "Type: Other"; break;
+	} std::cout << std::endl;
+
+	switch (severity)
+	{
+	case GL_DEBUG_SEVERITY_HIGH:         std::cout << "Severity: high"; break;
+	case GL_DEBUG_SEVERITY_MEDIUM:       std::cout << "Severity: medium"; break;
+	case GL_DEBUG_SEVERITY_LOW:          std::cout << "Severity: low"; break;
+	case GL_DEBUG_SEVERITY_NOTIFICATION: std::cout << "Severity: notification"; break;
+	} std::cout << std::endl;
+	std::cout << std::endl;
 }
