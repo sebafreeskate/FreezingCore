@@ -12,49 +12,62 @@
 #include <memory>
 #include <vector>
 
+#include <Shader.h>
+
 	struct Vertex {
 		glm::vec3 position;
 		glm::vec3 normal;
+		glm::vec3 tangent;
+		glm::vec3 bitangent;
 		glm::vec2 uv;
+	};
+
+	struct TextureMap {
+		GLuint id;
+		aiTextureType type;
+		std::string name;
+	};
+
+	struct Material {
+		GLfloat shininess = 0.0f;
+		glm::vec3 Ka = glm::vec3(1.0f);
+		glm::vec3 Kd = glm::vec3(1.0f);
+		glm::vec3 Ks = glm::vec3(1.0f);
+		std::vector<TextureMap> texMaps;
 	};
 
 	class Mesh
 	{
 	public:
 
-		// Implement Default Constructor and Destructor
+
 		Mesh() { glGenVertexArrays(1, &mVertexArray); }
 		~Mesh() { glDeleteVertexArrays(1, &mVertexArray); }
 
-		// Implement Custom Constructors
 		Mesh(std::string const & filename);
 		Mesh(std::vector<Vertex> const & vertices,
 			std::vector<GLuint> const & indices,
-			std::map<GLuint, std::string> const & textures);
+			Material&& material);
 
-		// Public Member Functions
-		void draw(GLuint shader);
+		void draw(Shader& shader) const;
+
+		const std::vector<aiTextureType>& getSupportedTextureTypes() const;
 
 	private:
 
-		// Disable Copying and Assignment
 		Mesh(Mesh const &) = delete;
 		Mesh & operator=(Mesh const &) = delete;
 
-		// Private Member Functions
 		void parse(std::string const & path, aiNode const * node, aiScene const * scene);
 		void parse(std::string const & path, aiMesh const * mesh, aiScene const * scene);
-		std::map<GLuint, std::string> process(std::string const & path,
-			aiMaterial * material,
-			aiTextureType type);
+		Material loadMaterial(std::string const & path,
+			aiMaterial * material);
 
-		// Private Member Containers
 		std::vector<std::unique_ptr<Mesh>> mSubMeshes;
 		std::vector<GLuint> mIndices;
 		std::vector<Vertex> mVertices;
-		std::map<GLuint, std::string> mTextures;
+		Material mMaterial;
 
-		// Private Member Variables
 		GLuint mVertexArray;
 		GLuint mVertexBuffer;
 		GLuint mElementBuffer;

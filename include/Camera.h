@@ -16,7 +16,7 @@ namespace defaults {
 	const GLfloat YAW = -90.0f;
 	const GLfloat PITCH = 0.0f;
 	const GLfloat SPEED = 3.0f;
-	const GLfloat SENSITIVTY = 0.25f;
+	const GLfloat SENSITIVTY = 0.15f;
 	const GLfloat ZOOM = 45.0f;
 }
 
@@ -49,6 +49,8 @@ public:
 	GLfloat getZoomVal() {
 		return zoomVal;
 	}
+
+	const glm::vec3& getPosition() const;
 
 private :
 	// Camera Attributes

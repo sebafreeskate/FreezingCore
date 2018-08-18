@@ -11,10 +11,25 @@ Shader & Shader::activate()
 	return *this;
 }
 
-void Shader::bind(unsigned int location, float value) { glUniform1f(location, value); }
+void Shader::bind(unsigned int location, GLfloat value) 
+{ 
+	glUniform1f(location, value);
+}
+void Shader::bind(unsigned int location, GLuint value) 
+{ 
+	glUniform1i(location, value);
+}
 void Shader::bind(unsigned int location, glm::mat4 const & matrix)
 {
 	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+}
+void Shader::bind(unsigned int location, glm::vec3 const & vec)
+{
+	glUniform3fv(location, 1, glm::value_ptr(vec));
+}
+void Shader::bind(unsigned int location, glm::vec4 const & vec)
+{
+	glUniform4fv(location, 1, glm::value_ptr(vec));
 }
 
 Shader & Shader::attach(std::string const & filename)

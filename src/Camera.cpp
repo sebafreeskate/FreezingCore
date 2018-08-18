@@ -84,3 +84,8 @@
 		if (this->zoomVal >= 45.0f)
 			this->zoomVal = 45.0f;
 	}
+
+	const glm::vec3& Camera::getPosition() const
+	{
+		return position;
+	}

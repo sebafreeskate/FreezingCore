@@ -21,8 +21,8 @@ set(INCLUDES
 	${INCLUDE_DIR}/HID.h
 	${INCLUDE_DIR}/Keyboard.h
 	${INCLUDE_DIR}/Mesh.h
-	#${INCLUDE_DIR}/Model.h
 	${INCLUDE_DIR}/Shader.h
+	${INCLUDE_DIR}/SceneGraph.h
 	${PROJECT_SOURCE_DIR}/config.h.in
 	)
 
@@ -32,15 +32,13 @@ set(SOURCES
 	${SRC_DIR}/Keyboard.cpp
 	${SRC_DIR}/main.cpp
 	${SRC_DIR}/Mesh.cpp
-	#${SRC_DIR}/Model.cpp
 	${SRC_DIR}/Shader.cpp
+	${SRC_DIR}/SceneGraph.cpp
 	)
 set(SHADERS
 	${SHADERS_DIR}/light.frag
-	${SHADERS_DIR}/shader0.vert
-	${SHADERS_DIR}/shader0.frag
-	${SHADERS_DIR}/shader1.vert
-	${SHADERS_DIR}/shader1.frag
+	${SHADERS_DIR}/basic.vert
+	${SHADERS_DIR}/phong.frag
 	)
 	
 add_executable(${PROJECT_NAME} ${INCLUDES} ${SOURCES} ${SHADERS})

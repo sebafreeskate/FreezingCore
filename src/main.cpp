@@ -1,7 +1,9 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 
-#include "utils.cpp"
+#include "stdlib.h"
+#include <iostream>
+#include <memory>
 
 #include <glad/glad.h>
 #include <glad.c>
@@ -10,6 +12,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/ext.hpp>
 
 #include <config.h>
 
@@ -17,9 +20,9 @@
 #include "Camera.h"
 #include "Mesh.h"
 #include "Keyboard.h"
+#include "utils.cpp"
+#include "SceneGraph.h"
 
-#include "stdlib.h"
-#include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -27,8 +30,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void APIENTRY glDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity,
 	GLsizei length, const GLchar *message, const void *userParam);
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1800;
+const unsigned int SCR_HEIGHT = 900;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -120,6 +123,8 @@ GLenum glCheckError_(const char *file, int line)
 }
 #define glCheckError() glCheckError_(__FILE__, __LINE__)
 
+
+
 int main()
 {
 	initialize_glfw();
@@ -130,35 +135,46 @@ int main()
 	inputDevice = new Keyboard(window);
 
 	Shader mainShader;
-	mainShader.attach(projectSrcDir + "/shaders/shader1.vert");
-	mainShader.attach(projectSrcDir + "/shaders/shader1.frag");
+	mainShader.attach(projectSrcDir + "/shaders/basic.vert");
+	mainShader.attach(projectSrcDir + "/shaders/phong.frag");
 	mainShader.link();
+	mainShader.activate();
 
-	Mesh testMesh(projectSrcDir + "/resources/nanosuit/nanosuit.obj");
+	std::shared_ptr<SceneNode> root(std::make_shared<SceneNode>());
+	std::shared_ptr<SceneNode> lightSource(std::make_shared<SceneNode>(projectSrcDir + "/resources/crate/Crate1.obj"));
+	std::shared_ptr<SceneNode> mainObject(std::make_shared<SceneNode>(projectSrcDir + "/resources/nanosuit/nanosuit.obj"));
+
+	lightSource->isLightSource = true;
+
+	root->addChild(lightSource);
+	root->addChild(mainObject);
+
+	root->scale(glm::vec3(0.2f, 0.2f, 0.2f));
+
+	glm::vec4 ambientColor(0.1f, 0.0f, 0.1f, 0.1f);
+	glClearColor(ambientColor.r, ambientColor.g, ambientColor.b, ambientColor.a);
+	mainShader.bind("ambientColor", ambientColor);
 
 	while (!glfwWindowShouldClose(window))
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
 		camera.transpose(inputDevice->getMovement(), deltaTime);
+		lightSource->translate(glm::vec3(glm::sin(currentFrame)*2, 3.0f, glm::cos(currentFrame)*2));
 
-		glClearColor(0.2f, 0.0f, 0.2f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		mainShader.activate();
 
 		glm::mat4 m_projection = glm::perspective(glm::radians(camera.getZoomVal()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 m_view = camera.GetViewMatrix();
 		mainShader.bind("projection", m_projection);
-		mainShader.bind("view", m_view);
+		mainShader.bind("view",	m_view);
+		mainShader.bind("cameraPos", camera.getPosition());
 
-		glm::mat4 m_model = glm::mat4(1.0);
-		//m_model = glm::translate(m_model, glm::vec3(0.0f, 0.5f, 0.0f)); // translate it down so it's at the center of the scene
-		m_model = glm::scale(m_model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for scene, scale it down
-		mainShader.bind("model", m_model);
-		testMesh.draw(mainShader.get());
+		root->draw(mainShader);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
