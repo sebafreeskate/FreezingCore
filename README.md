@@ -4,6 +4,6 @@ This project is something like a self-made realtime rendering engine developed j
 I'am using it as a testing field for experiments and learning computer graphics, so it may be not in consistent state.
 
 Now it consists of the real-time rendering system based on OpenGL with some kind of blinn-phong shading implementation, assets loading system, scene graph, and human interface system for camera rotation, movement etc.
-There are still many things i'm going to implement here. 
+There are still many things i'm going to implement here. When i done, it will be Unity and Unreal killer, then i sell it to Microsoft and will never code again. Maybe even find a girlfriend
 
 Please note: project contains git submodules as third party libraries, if u want to clone this mess for some reason use git clone --recurse-submodules or initialize each submodule with git submodule init, git submodule update .
