@@ -38,7 +38,7 @@ set(SOURCES
 set(SHADERS
 	${SHADERS_DIR}/light.frag
 	${SHADERS_DIR}/basic.vert
-	${SHADERS_DIR}/phong.frag
+	${SHADERS_DIR}/blinn-phong.frag
 	)
 	
 add_executable(${PROJECT_NAME} ${INCLUDES} ${SOURCES} ${SHADERS})

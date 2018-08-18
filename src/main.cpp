@@ -136,7 +136,7 @@ int main()
 
 	Shader mainShader;
 	mainShader.attach(projectSrcDir + "/shaders/basic.vert");
-	mainShader.attach(projectSrcDir + "/shaders/phong.frag");
+	mainShader.attach(projectSrcDir + "/shaders/blinn-phong.frag");
 	mainShader.link();
 	mainShader.activate();
 

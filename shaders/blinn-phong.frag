@@ -40,15 +40,16 @@ void main()
 	vec3 ambientColor = vec3(texture(material.texture_diffuse0, TexCoords)) * 0.2;
 	blendAmbient(environmentColor, ambientColor);
 
-	vec3 lightDir = normalize( LightPos - FragPos);
-	float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuseColor = texture(material.texture_diffuse0, TexCoords).rgb * material.Kd * diff; 
+	vec3 lightDir		= normalize( LightPos - FragPos);
+	float diff			= max(dot(norm, lightDir), 0.0);
+    vec3 diffuseColor	= texture(material.texture_diffuse0, TexCoords).rgb * material.Kd * diff; 
+
 	blendAmbient(environmentColor, diffuseColor);
 
 	//specular 
-	vec3 cameraDir = normalize(CameraPos - FragPos);
-	vec3 reflectDir = reflect(-lightDir, norm);
-	float spec = pow(max(dot(cameraDir, reflectDir), 0.0), material.shininess);
+	vec3 cameraDir	= normalize(CameraPos - FragPos);
+	vec3 halfwayDir = normalize(lightDir + cameraDir);
+	float spec		= pow(max(dot(norm , halfwayDir), 0.0), material.shininess);
 	vec3 specularColor = texture(material.texture_specular0, TexCoords).rgb * material.Ks * spec;
 
 	FragColor = vec4( ambientColor + diffuseColor + specularColor , 1.0);
