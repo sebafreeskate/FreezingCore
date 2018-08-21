@@ -41,6 +41,11 @@
 		{
 			glm::vec3 lightPos(glm::vec3(glm::vec4(mTranslateVector, 1.0f) * basis));
 			shader.bind("lightPos", mTranslateVector);
+			shader.bind("fullEmissiveColor", glm::vec4(1.0f));
+		}
+		else
+		{
+			shader.bind("fullEmissiveColor", glm::vec4(0.0f));
 		}
 
 		mMesh.draw(shader);

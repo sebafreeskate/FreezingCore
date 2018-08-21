@@ -21,6 +21,7 @@ struct Material {
 uniform Material material;
 
 uniform vec4 environmentColor;
+uniform vec4 fullEmissiveColor;
 
 vec3 lightColor = vec3(1.0, 0.8, 0.0);
 
@@ -52,5 +53,5 @@ void main()
 	float spec		= pow(max(dot(norm , halfwayDir), 0.0), material.shininess);
 	vec3 specularColor = texture(material.texture_specular0, TexCoords).rgb * material.Ks * spec;
 
-	FragColor = vec4( ambientColor + diffuseColor + specularColor , 1.0);
+	FragColor = vec4( ambientColor + diffuseColor + specularColor , 1.0) + fullEmissiveColor;
 }

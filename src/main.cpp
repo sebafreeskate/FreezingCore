@@ -44,8 +44,10 @@ GLFWwindow* window;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-void configure_opengl_global_state() {
+void configure_opengl_global_state()
+{
 	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_FRAMEBUFFER_SRGB);
 
 	GLint flags;
 	glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
